@@ -20,7 +20,7 @@ def make_prediction(input_data):
         sc =  train_data['sc']
 
         ann = keras.models.model_from_json(json_model)
-        ann.load_weights("/mount/src/leveragingserverlessarchitectureforscalablechurnprediction/model.weights.h5")
+        ann.load_weights("model.weights.h5")
         dataset=pd.json_normalize(input_data)
         X = dataset.values
 
@@ -70,7 +70,6 @@ ac= 1 if Active == 'Yes' else 0
 #input = np.array([Credit,Geography,Gender,Age,Tenure,Balance,Products,card,ac,Salary])
 input_data = {"Credit":Credit, "Geography": Geography,"Gender": Gender,"Age": Age,"Tenure": Tenure,"Balance":Balance,"Products":Products,"Credits":card,"Active":ac,"Salary":Salary}
 if st.button('Predict Churn'):
-        st.write(os.getcwd())
         with st.spinner('Predicting...'):
                 prediction = make_prediction(input_data)
         st.subheader("Prediction Result")
