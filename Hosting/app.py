@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 import keras
 import json
-
+import os
 
 
 def make_prediction(input_data):
@@ -70,6 +70,7 @@ ac= 1 if Active == 'Yes' else 0
 #input = np.array([Credit,Geography,Gender,Age,Tenure,Balance,Products,card,ac,Salary])
 input_data = {"Credit":Credit, "Geography": Geography,"Gender": Gender,"Age": Age,"Tenure": Tenure,"Balance":Balance,"Products":Products,"Credits":card,"Active":ac,"Salary":Salary}
 if st.button('Predict Churn'):
+    st.write(os.getcwd())
         with st.spinner('Predicting...'):
                 prediction = make_prediction(input_data)
         st.subheader("Prediction Result")
