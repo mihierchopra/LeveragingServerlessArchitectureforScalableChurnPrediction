@@ -20,7 +20,7 @@ def make_prediction(input_data):
         sc =  train_data['sc']
 
         ann = keras.models.model_from_json(json_model)
-        ann.load_weights("model.weights.h5")
+        ann.load_weights("./model.weights.h5")
         dataset=pd.json_normalize(input_data)
         X = dataset.values
 
