@@ -73,7 +73,7 @@ if st.button('Predict Churn'):
         with st.spinner('Predicting...'):
                 prediction = make_prediction(input_data)
         st.subheader("Prediction Result")
-        st.write(prediction)
+        
         churn=float(prediction['data'])
 
         if churn >0.5 :
